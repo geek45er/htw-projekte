@@ -1,0 +1,21 @@
+[project]
+name = "bildverarbeitung-2025"
+version = "0.1.0"
+description = "Belegarbeit Setup - Bildverarbeitung WS 2024/25"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "ipykernel>=6.29.5",
+    "ipywidgets",
+    "jupyterlab>=4.4.9",
+    "jupyterlab-widgets",
+    "matplotlib>=3.10.1",
+    "mdtraj>=1.10.3",
+    "nglview>=3.0.8",
+    "numpy>=2.2.4",
+    "pillow>=11.1.0",
+    "pygments>=2.19.1",
+    "rise>=5.6.1",
+    "scikit-learn>=1.7.0",
+    "setuptools>=78.1.0",
+]
