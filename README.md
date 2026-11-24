@@ -12,4 +12,8 @@ projekte und belegarbeiten aus dem bachelorstudium informatik in kultur und gesu
 - `deeplearning` gruppenprojekte
 - `ikg` validierung von genen
 
-java-projekte laufen mit gradle bzw. intellij, die notebooks mit python 3.12 (abhängigkeiten in `bildverarbeitung/pyproject.toml`)
+## setup
+
+- java: gradle-projekte in `programmieren1` und `programmieren2`, `programmieren3` als intellij-projekt, restlicher java-code ohne build-tool
+- php: laravel, abhängigkeiten über composer
+- notebooks: python ≥ 3.12, z. b. in jupyterlab, vscodium oder google colab. abhängigkeiten für `bildverarbeitung` in `bildverarbeitung/pyproject.toml`, `deeplearning` braucht zusätzlich pytorch, pandas und plotly
