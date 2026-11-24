@@ -1,2 +1,2 @@
-# notebooks nicht in der sprachstatistik zählen
-*.ipynb linguist-detectable=false
+# notebooks als python zählen
+*.ipynb linguist-language=Python
