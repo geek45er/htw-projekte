@@ -13,3 +13,9 @@ cifar10/
 *.npy
 *.midi
 report_*.txt
+
+# gebraucht von den webxr-samples
+!mixedreality/pflichtteil/js/third-party/webxr-polyfill/build/
+# abgabe midi-extra
+!programmieren1/midi-extra/*.midi
+!**/src/test/resources/*.midi
