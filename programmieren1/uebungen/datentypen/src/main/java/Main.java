@@ -8,7 +8,7 @@ public class Main {
         } else if (c >= 'A' && c <= 'Z') { //sonst prüfen, ob char c ein großbuchstabe ist; A = 65 bis Z=90
             return (char) (c + 32); // 'A'(65) + 32 = 'a'(97)
         } else {
-            return c;
+            return 0; // alles andere (zahlen, sonderzeichen): wert 0, nicht das zeichen '0'
         }
     }
 
@@ -80,6 +80,14 @@ public class Main {
     }
 
 
+    // zusatzaufgabe: ganzen text verschlüsseln, nutzt einfach caesarChiffre(char, int) für jedes zeichen
+    public static void caesarChiffre(String text, int offset) {
+        for (int i = 0; i < text.length(); i++) {
+            System.out.print(caesarChiffre(text.charAt(i), offset));
+        }
+        System.out.println();
+    }
+
     public static void main(String[] args) {
         //ausführen von switchCase
         System.out.println("to.Upper-/lowerCase alternative START: ");
@@ -111,6 +119,7 @@ public class Main {
         System.out.println("fehler:");
         System.out.println(Main.caesarChiffre('1', 2));
         System.out.println(Main.caesarChiffre(' ', 2));
+        caesarChiffre("Hallo Welt, Zebra!", 3);
         System.out.println("Caesar done\n");
 
         //Primzahlen start:
@@ -172,16 +181,17 @@ public class Main {
         System.out.println(Main.calculateSeriesDouble(44));
         System.out.println(Main.calculateSeriesDouble(45));
         //ergebnis: es gab keinen overflow, wie es bei int der fall war.
-        //ich denke, es liegt daran, dass double einen höheren Speicherbedarf hat, als int
+        //liegt daran, dass double einen viel größeren wertebereich hat (bis ca. 1.8e308), dafür aber ab ca. 15-17 stellen rundet
         //test 2:
         System.out.println("\ntest2:");
         System.out.println(Main.calculateSeries(13) - Main.calculateSeriesDouble(13));
         System.out.println(Main.calculateSeries(14) - Main.calculateSeriesDouble(14));
         //erwartung: da differenz, ist der wert 0.
         // ergebnis: 14 - 14 ist nicht 0 bzw. sogar der doppelte wert von 13 - 13
-        // das liegt wohl daran, dass dobule nur eine bestimmte menge an nachkommastellen genau speichert.
-        // der rest danach ist gerundet, was wohl den "fehler" entstehen lässt.
-        // dobule kann weit aus mehr zahlen speichern, aber nur 15-17 nachkommastellen genau..
+        // grund ist nicht double, sondern int: 13! (6.227.020.800) und 14! passen beide schon nicht mehr in einen int (max 2.147.483.647).
+        // calculateSeries läuft also über und liefert einen falschen wert, calculateSeriesDouble ist bei 13 und 14 noch exakt.
+        // die differenz ist dann einfach der fehler vom int-overflow.
+        // (double rundet erst ab ca. 15-17 stellen, das spielt hier noch keine rolle)
         System.out.println("DONE");
     }
 }

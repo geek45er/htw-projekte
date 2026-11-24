@@ -35,6 +35,10 @@ public class Main {
                 System.out.println(numOne + " - " + numTwo + " = " + result);
             }
             case "quotient" -> {
+                if (numTwo == 0) {
+                    System.out.println("Teilen durch 0 nicht möglich");
+                    return;
+                }
                 result = (double) numOne / numTwo; //(double), weil numOne und num Two int sind, und int/int keine Nachkommastelle behält   || 10/3 = 3 (int) & 10/3 = 3.3333333333333335 (double)
                 System.out.println(numOne + " / " + numTwo + " = " + result);
             }
@@ -42,28 +46,28 @@ public class Main {
                 result = numOne * numTwo;
                 System.out.println(numOne + " * " + numTwo + " = " + result);
             }
-            default -> System.out.println("unbekannter operator");
+            default -> System.out.println("Unbekannte Operation");
         }
     }
 
     public static double calculatePerimeter(double sideLength) {
         if (sideLength < 0) {
-            System.out.println("wie soll man ein quadrat mit negative kanten berechnen???");
-            return 0; // fehlercode 0 bei ungültiger eingabe, methode wird genau hier beendet
+            System.out.println("Negative Kantenlängen sind nicht möglich");
+            return -1; // fehlercode -1 bei ungültiger eingabe, methode wird genau hier beendet
         }
         double perimeter = 4 * sideLength;
-        System.out.println("der umfang vom quadrat beträgt: " + perimeter + " (Kantenlängen " + sideLength + ").");
+        System.out.println("Der Umfang von einem Quadrat mit den Kantenlängen " + sideLength + " beträgt " + perimeter);
         return perimeter;
     }
 
     public static double calculatePerimeter(double length, double width) {
         if (length < 0 || width < 0) { //oder
-            System.out.println("wie soll man rechteck negative kanten berechnen???");
+            System.out.println("Negative Kantenlängen sind nicht möglich");
             return -1;
         }
 
         double perimeter = 2 * (length + width);
-        System.out.println("der umfang vom rechteck beträgt: " + perimeter + " (Kantenlängen: " + length + " und " + width + ").");
+        System.out.println("Der Umfang von einem Rechteck mit den Kantenlängen " + length + " und " + width + " beträgt " + perimeter);
         return perimeter;
     }
 
