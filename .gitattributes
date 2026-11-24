@@ -1,0 +1,2 @@
+# notebooks nicht in der sprachstatistik zählen
+*.ipynb linguist-detectable=false
